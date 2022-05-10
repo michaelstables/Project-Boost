@@ -12,8 +12,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("Seralized For Testing")]
     [SerializeField]Vector3 playerMovement;
 
-    Rigidbody myrigidBody;
+    Rigidbody myRigidBody;
     PlayerInput myPlayerInput;
+    RocketAudioManager rocketAudioManager;
 
     InputAction rotateShipAction;
     InputAction thrustAction;
@@ -26,17 +27,20 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         ReadPlayerInput();
+        HandleRocketThrustSoundEffect();
     }
 
     private void FixedUpdate()
     {
-        FlyShip();
+        SteerShip();
+        ApplyThrust();
     }
 
     void GetReferances()
     {
-        myrigidBody = GetComponent<Rigidbody>();
+        myRigidBody = GetComponent<Rigidbody>();
         myPlayerInput = GetComponent<PlayerInput>();
+        rocketAudioManager = GetComponent<RocketAudioManager>();
         rotateShipAction = myPlayerInput.actions["Rotate Ship"];
         thrustAction = myPlayerInput.actions["Thrust"];
     }
@@ -47,9 +51,25 @@ public class PlayerMovement : MonoBehaviour
         playerMovement.z = rotateShipAction.ReadValue<Vector2>().x;
     }
 
-    private void FlyShip()
+    private void HandleRocketThrustSoundEffect()
     {
-        myrigidBody.AddRelativeForce(new Vector3(0, playerMovement.y, 0) * mainThrust);
-        myrigidBody.AddRelativeTorque(new Vector3(0, 0, -playerMovement.z) * torquePower);
+        if (thrustAction.ReadValue<float>() == 1)
+        {
+            rocketAudioManager.PlayRocketSoundEffect();
+        }
+        else
+        {
+            rocketAudioManager.StopRocketSoundEffect();
+        }
+    }
+
+    private void SteerShip()
+    {     
+        myRigidBody.AddRelativeTorque(new Vector3(0, 0, -playerMovement.z) * torquePower);
+    }
+
+    private void ApplyThrust()
+    {
+        myRigidBody.AddRelativeForce(new Vector3(0, playerMovement.y, 0) * mainThrust);
     }
 }
