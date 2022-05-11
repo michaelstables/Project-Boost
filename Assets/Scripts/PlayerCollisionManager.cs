@@ -6,6 +6,8 @@ public class PlayerCollisionManager : MonoBehaviour
     RocketAudioManager rocketAudioManager;
     PlayerMovement playerMovement;
     SessionManager sessionManager;
+    [SerializeField] ParticleSystem successParticles;
+    [SerializeField] ParticleSystem crashParticles;
 
     bool isTransitioning = false;
 
@@ -49,6 +51,7 @@ public class PlayerCollisionManager : MonoBehaviour
     {
         PrepareTransition();
         rocketAudioManager.PlayDeathExplosionSoundEffect();
+        crashParticles.Play();
         yield return new WaitForSecondsRealtime(rocketAudioManager.GetDeathExplosionAudioClipLength());
         {
             sessionManager.RealoadLevel();
@@ -59,6 +62,7 @@ public class PlayerCollisionManager : MonoBehaviour
     {
         PrepareTransition();
         rocketAudioManager.PlayLevelSuccessSoundEffect();
+        successParticles.Play();
         yield return new WaitForSecondsRealtime(rocketAudioManager.GetLevelSuccessAudioClipLength());
         {
             sessionManager.LoadNextLevel();

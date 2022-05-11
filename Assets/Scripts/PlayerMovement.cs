@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float mainThrust = 100f;
     [SerializeField] float torquePower = 10f;
 
+    [Header("Effects")]
+    [SerializeField] ParticleSystem thrustParticles;
+
     [Header("Seralized For Testing")]
     [SerializeField]Vector3 playerMovement;
 
@@ -54,10 +57,12 @@ public class PlayerMovement : MonoBehaviour
         if (thrustAction.ReadValue<float>() == 1)
         {
             rocketAudioManager.PlayRocketSoundEffect();
+            thrustParticles.Play();
         }
         else
         {
             rocketAudioManager.StopRocketSoundEffect();
+            thrustParticles.Stop();
         }
     }
 
