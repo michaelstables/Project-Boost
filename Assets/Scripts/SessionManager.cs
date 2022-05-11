@@ -5,6 +5,20 @@ using UnityEngine.SceneManagement;
 public class SessionManager : MonoBehaviour
 {
     int currentSceneIndex;
+    int numberOfSessionManagers;
+
+    private void Awake()
+    {
+        numberOfSessionManagers = FindObjectsOfType<SessionManager>().Length;
+        if (numberOfSessionManagers > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
 
     private void Start()
     {
