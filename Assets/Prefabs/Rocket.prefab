@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 1736884917497490904}
   - component: {fileID: 1912843377}
   - component: {fileID: 9025653467083419463}
+  - component: {fileID: 1912843385}
   - component: {fileID: 8639661357921507851}
   - component: {fileID: 1912843376}
-  - component: {fileID: 1912843385}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -254,6 +254,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1912843385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6992630936504065364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0549f734732cd467da01e4afcc57b827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8639661357921507851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,6 +279,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rocketSFX: {fileID: 8300000, guid: 52a24bee7857649b6a1a51a58373a61b, type: 3}
+  levelSuccessSFX: {fileID: 8300000, guid: a55259a286b27430095887bdc99424f0, type: 3}
+  deathExplosionSFX: {fileID: 8300000, guid: 657c67a7081d246448e70f901a3516cc, type: 3}
 --- !u!114 &1912843376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,15 +296,3 @@ MonoBehaviour:
   mainThrust: 40
   torquePower: 2
   playerMovement: {x: 0, y: 0, z: 0}
---- !u!114 &1912843385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6992630936504065364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0549f734732cd467da01e4afcc57b827, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

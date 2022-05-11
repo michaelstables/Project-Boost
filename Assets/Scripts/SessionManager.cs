@@ -11,9 +11,9 @@ public class SessionManager : MonoBehaviour
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         Debug.Log(currentSceneIndex);
     }
-    public void ReloadScene()
+
+    public void RealoadLevel()
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
     }
 
