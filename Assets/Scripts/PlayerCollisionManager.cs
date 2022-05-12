@@ -13,13 +13,12 @@ public class PlayerCollisionManager : MonoBehaviour
 
     private void Awake()
     {
-        rocketAudioManager = GetComponent<RocketAudioManager>();
-        playerMovement = GetComponent<PlayerMovement>();
-        sessionManager = FindObjectOfType<SessionManager>();
+        GetReferances();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (isTransitioning || sessionManager.GetCollisionDisabled()) { return; }
         switch (collision.gameObject.tag)
         {
             case "Friendly":
@@ -67,5 +66,12 @@ public class PlayerCollisionManager : MonoBehaviour
         {
             sessionManager.LoadNextLevel();
         }
+    }
+
+    private void GetReferances()
+    {
+        rocketAudioManager = GetComponent<RocketAudioManager>();
+        playerMovement = GetComponent<PlayerMovement>();
+        sessionManager = FindObjectOfType<SessionManager>();
     }
 }

@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         ReadPlayerInput();
-        HandleRocketThrustSoundEffect();
+        HandleRocketThrustEffects();
     }
 
     private void FixedUpdate()
@@ -52,27 +52,37 @@ public class PlayerMovement : MonoBehaviour
         playerMovement.z = rotateShipAction.ReadValue<Vector2>().x;
     }
 
-    private void HandleRocketThrustSoundEffect()
-    {
-        if (thrustAction.ReadValue<float>() == 1)
-        {
-            rocketAudioManager.PlayRocketSoundEffect();
-            thrustParticles.Play();
-        }
-        else
-        {
-            rocketAudioManager.StopRocketSoundEffect();
-            thrustParticles.Stop();
-        }
-    }
-
     private void SteerShip()
-    {     
+    {
         myRigidBody.AddRelativeTorque(new Vector3(0, 0, -playerMovement.z) * torquePower);
     }
 
     private void ApplyThrust()
     {
         myRigidBody.AddRelativeForce(new Vector3(0, playerMovement.y, 0) * mainThrust);
+    }
+
+    private void HandleRocketThrustEffects()
+    {
+        if (thrustAction.ReadValue<float>() == 1)
+        {
+            StartRocketThrustEffects();
+        }
+        else
+        {
+            StopRocketThrustEffects();
+        }
+    }
+
+    private void StartRocketThrustEffects()
+    {
+        rocketAudioManager.PlayRocketSoundEffect();
+        thrustParticles.Play();
+    }
+
+    private void StopRocketThrustEffects()
+    {
+        rocketAudioManager.StopRocketSoundEffect();
+        thrustParticles.Stop();
     }
 }

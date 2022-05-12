@@ -762,6 +762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainThrust: 40
   torquePower: 4
+  thrustParticles: {fileID: 3122451574164945322}
   playerMovement: {x: 0, y: 0, z: 0}
 --- !u!114 &276124571093338475
 MonoBehaviour:
@@ -1212,5 +1213,10 @@ PrefabInstance:
 --- !u!4 &3025129297346229218 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4940884351362868, guid: a3553fd250eb92d4091bebde350c6739, type: 3}
+  m_PrefabInstance: {fileID: 3020480092814005462}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3122451574164945322 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198100719057022332, guid: a3553fd250eb92d4091bebde350c6739, type: 3}
   m_PrefabInstance: {fileID: 3020480092814005462}
   m_PrefabAsset: {fileID: 0}

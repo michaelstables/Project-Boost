@@ -1,0 +1,54 @@
+{
+    "name": "DeveloperControls",
+    "maps": [
+        {
+            "name": "New action map",
+            "id": "0e5900af-f1c6-48cd-9df3-4bc14ee3eded",
+            "actions": [
+                {
+                    "name": "Disable Collisions",
+                    "type": "Button",
+                    "id": "0ca74d44-74d3-4681-955a-9bf2b4321c47",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Load Next Level",
+                    "type": "Button",
+                    "id": "f3713d11-a176-46ba-b97e-b05b5dda4b1f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8b0d9f72-80a1-4a18-bc71-9312e0ceab94",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Disable Collisions",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d868e0c0-52c0-4e8b-a267-a8155d0791e0",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Load Next Level",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

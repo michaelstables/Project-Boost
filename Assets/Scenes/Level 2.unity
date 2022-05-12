@@ -352,6 +352,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8954017572111385199, guid: f673f8455cb00489a9ea3597f91e9a5e, type: 3}
+      propertyPath: isDeveloper
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8954017572111385200, guid: f673f8455cb00489a9ea3597f91e9a5e, type: 3}
       propertyPath: m_Name
       value: Session Manager
